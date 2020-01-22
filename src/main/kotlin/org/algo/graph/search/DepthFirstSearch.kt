@@ -1,14 +1,15 @@
-package org.algo.graph.undirected
+package org.algo.graph.search
 
+import org.algo.graph.undirected.Graph
 import java.util.*
 
-class DepthFirstSearch(val graph:Graph) {
+class DepthFirstSearch(val graph: Graph) {
     private var marked = Array(graph.vertices){false}
     private var edgeTo = Array<Int>(graph.vertices){-1}
 
     fun dfs(v:Int){
         marked[v]=true
-        for(w in graph.getAdj()[v]){
+        for(w in graph.getAdjacency()[v]){
             if(!marked[w]){
                 edgeTo[w]=v
                 dfs(w)

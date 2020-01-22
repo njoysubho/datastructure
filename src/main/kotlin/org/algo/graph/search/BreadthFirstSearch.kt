@@ -1,8 +1,9 @@
-package org.algo.graph.undirected
+package org.algo.graph.search
 
+import org.algo.graph.undirected.Graph
 import java.util.*
 
-class BreadthFirstSearch(val graph:Graph) {
+class BreadthFirstSearch(val graph: Graph) {
     private var marked = Array(graph.vertices){false}
     private var edgeTo = Array<Int>(graph.vertices){-1}
 
@@ -12,7 +13,7 @@ class BreadthFirstSearch(val graph:Graph) {
         queue.add(v)
         while(queue.isNotEmpty()){
             val current = queue.remove()
-            for(w in graph.getAdj()[current]){
+            for(w in graph.getAdjacency()[current]){
                 if(!marked[w]){
                     edgeTo[w]=current
                     marked[w] = true
