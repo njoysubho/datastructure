@@ -3,6 +3,7 @@ package org.algo.graph.undirected
 import org.algo.graph.directed.DepthFirstOrder
 import org.algo.graph.directed.DirectedCycle
 import org.algo.graph.directed.DirectedGraph
+import org.algo.graph.directed.TopologicalSort
 import org.algo.graph.search.DepthFirstSearch
 
 object Driver {
@@ -14,8 +15,7 @@ object Driver {
         graph.addEdge(0, 1)
         graph.addEdge(1, 3)
         graph.addEdge(1, 2)
-        val depthFirstOrder = DepthFirstOrder(graph)
-        depthFirstOrder.order()
-        depthFirstOrder.printOrder()
+        val topologicalSort = TopologicalSort()
+        topologicalSort.sort(graph)
     }
 }

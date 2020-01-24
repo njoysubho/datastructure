@@ -8,12 +8,13 @@ class DirectedCycle(private val directedGraph: DirectedGraph) {
     private var cycle: Stack<Int>? = null
     private var onStack = Array(directedGraph.vertices) { false }
 
-    fun checkCycle() {
+    fun hasNoCycle():Boolean {
         for (v in 0 until directedGraph.vertices) {
             if (!marked[v]) {
                 dfs(v)
             }
         }
+        return cycle == null
     }
 
     private fun dfs(v: Int) {
@@ -40,5 +41,11 @@ class DirectedCycle(private val directedGraph: DirectedGraph) {
 
      fun hasCycle(): Boolean {
         return cycle != null
+    }
+
+    fun printCycle(){
+        while(cycle!!.isNotEmpty()){
+            print(cycle?.pop())
+        }
     }
 }
