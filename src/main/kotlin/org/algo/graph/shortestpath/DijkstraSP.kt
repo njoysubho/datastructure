@@ -9,7 +9,7 @@ class DijkstraSP(val graph: EdgeWeightedDirectedGraph) {
     private val distMap = TreeMap<Int,Int>()
     fun calculateShortestPath(v: Int) {
         initialize(v)
-        queue.add(v)
+      //  queue.add(v)
         for (x in 0 .. graph.vertices) {
             val current = findMinimum()
             relax(current)
