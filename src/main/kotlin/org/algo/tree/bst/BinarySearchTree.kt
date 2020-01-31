@@ -26,4 +26,13 @@ class BinarySearchTree<T : Comparable<T>, V : Comparable<V>> {
         }
         return node
     }
+
+    fun min(x:Node<T,V>):Node<T,V>{
+        if(x.left==null) {
+            return x
+        }else{
+            return min(x.left!!)
+        }
+
+    }
 }
